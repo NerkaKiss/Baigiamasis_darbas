@@ -11,6 +11,10 @@ public class Locator {
                     "//input[@name='password']");
             public static final By buttonSubmit = By.xpath(
                     "//button[@type='submit']");
+            public static final By divSignIn = By.xpath(
+                    "//div[contains(text(),'Prisijungti')]");
+            public static final By divErrorMessage = By.xpath(
+                    "//div[contains(@class, 'ms-motion-fadeIn')]");
         }
         public static class Home {
             public static final By spanAcceptCookies = By.xpath(

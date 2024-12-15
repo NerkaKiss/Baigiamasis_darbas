@@ -7,6 +7,8 @@ import static lt.vcs.pom.page.Locator.Depo.SignIn.*;
 public class SignInPage {
     public static void enterEmail(String value) {
         Common.waitForPageLoadAndAjaxComplete(8);
+        Common.isElementDisplayed(inputEmail);
+        Common.clickOnElementWithActions(inputEmail);
         Common.sendKeysToElement(inputEmail, value);
     }
 
@@ -16,5 +18,17 @@ public class SignInPage {
 
     public static void clickButtonOk() {
         Common.clickOnElement(buttonSubmit);
+    }
+
+    public static String readNewUrl() {
+        return Common.getCurrentUrl();
+    }
+
+    public static boolean isSignInIsVisible() {
+        return Common.isElementDisplayed(divSignIn);
+    }
+
+    public static String readErrorMessage() {
+        return Common.getTextFromElement(divErrorMessage);
     }
 }

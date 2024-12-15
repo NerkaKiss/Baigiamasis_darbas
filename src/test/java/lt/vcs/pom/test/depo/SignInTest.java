@@ -36,4 +36,44 @@ public class SignInTest extends TestBase {
                 "\nActual: %s\nExpected contains: %s".formatted(actualFullName, expectedFullName));
         Assert.assertTrue(isAccountIsVisible, "Account is not visible");
     }
+
+    @Test
+    public void testNegativeLoginWithEmptyEmail() {
+        String email = "";
+        String password = "BuzBfCd&6454";
+        String expectedUrl = "https://online.depo-diy.lt/sign-in";
+        String expectedFullName = "Būtinai užpildomas laukelis!";
+        SignInPage.enterEmail(email);
+        SignInPage.enterPassword(password);
+        SignInPage.clickButtonOk();
+        boolean isSignInIsVisible = SignInPage.isSignInIsVisible();
+        String actualUrl = SignInPage.readNewUrl();
+        String actualErrorMessage = SignInPage.readErrorMessage();
+
+        Assert.assertTrue(actualUrl.contains(expectedUrl),
+                "\nActual: %s\nExpected contains: %s".formatted(actualUrl, expectedUrl));
+        Assert.assertTrue(actualErrorMessage.contains(expectedFullName),
+                "\nActual: %s\nExpected contains: %s".formatted(actualErrorMessage, expectedFullName));
+        Assert.assertTrue(isSignInIsVisible, "SignIn is not visible");
+    }
+
+    @Test
+    public void testNegativeLoginWithEmptyPassword() {
+        String email = "mite.trudge7178@eagereverest.com";
+        String password = "";
+        String expectedUrl = "https://online.depo-diy.lt/sign-in";
+        String expectedFullName = "Būtinai užpildomas laukelis!";
+        SignInPage.enterEmail(email);
+        SignInPage.enterPassword(password);
+        SignInPage.clickButtonOk();
+        boolean isSignInIsVisible = SignInPage.isSignInIsVisible();
+        String actualUrl = SignInPage.readNewUrl();
+        String actualErrorMessage = SignInPage.readErrorMessage();
+
+        Assert.assertTrue(actualUrl.contains(expectedUrl),
+                "\nActual: %s\nExpected contains: %s".formatted(actualUrl, expectedUrl));
+        Assert.assertTrue(actualErrorMessage.contains(expectedFullName),
+                "\nActual: %s\nExpected contains: %s".formatted(actualErrorMessage, expectedFullName));
+        Assert.assertTrue(isSignInIsVisible, "SignIn is not visible");
+    }
 }
