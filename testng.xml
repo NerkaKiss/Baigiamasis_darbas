@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Baigiamasis darbas">
+    <test name="Depo">
+        <classes>
+            <class name="lt.vcs.pom.test.depo.SignInTest"/>
+        </classes>
+    </test>
+</suite>
