@@ -12,13 +12,10 @@ public class SignInTest extends TestBase {
     @Override
     public void setUp() {
         HomePage.open();
-        HomePage.acceptCookies();
-        HomePage.chooseKaunasStore();
-        HomePage.clickButtonSignIn();
     }
 
     @Test
-    public void testPositiveLogin() {
+    public void testPositive_Login_ExpectedAccountIsVisible() {
         String email = "mite.trudge7178@eagereverest.com";
         String password = "BuzBfCd&6454";
         String expectedUrl = "https://online.depo-diy.lt/";
@@ -38,7 +35,7 @@ public class SignInTest extends TestBase {
     }
 
     @Test
-    public void testNegativeLoginWithEmptyEmail() {
+    public void testNegative_LoginWithEmptyEmail_ExpectedErrorMessage() {
         String email = "";
         String password = "BuzBfCd&6454";
         String expectedUrl = "https://online.depo-diy.lt/sign-in";
@@ -58,7 +55,7 @@ public class SignInTest extends TestBase {
     }
 
     @Test
-    public void testNegativeLoginWithEmptyPassword() {
+    public void testNegative_LoginWithEmptyPassword_ExpectedErrorMessage() {
         String email = "mite.trudge7178@eagereverest.com";
         String password = "";
         String expectedUrl = "https://online.depo-diy.lt/sign-in";

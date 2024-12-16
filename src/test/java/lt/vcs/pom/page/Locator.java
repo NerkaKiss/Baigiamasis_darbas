@@ -16,6 +16,7 @@ public class Locator {
             public static final By divErrorMessage = By.xpath(
                     "//div[contains(@class, 'ms-motion-fadeIn')]");
         }
+
         public static class Home {
             public static final By spanAcceptCookies = By.xpath(
                     "//span[contains(text(),'Patvirtinti tik')]");
@@ -31,6 +32,19 @@ public class Locator {
                     "//div[@role='menubar']//div[contains(@class, 'ellipsis')]");
             public static final By divAccount = By.xpath(
                     "//div[normalize-space()='Paskyra']");
+            public static final By inputSearchBox = By.xpath(
+                    "//input[contains(@id, 'SearchBox')]");
+            public static final By divSearchButton = By.xpath(
+                    "//div[@role='presentation']/../div[contains(@class, 'group')]");
+            public static final By divFirstSearchProduct = By.xpath(
+                    "//div[contains(@class,'ms-Image clickable absolute')]");
+        }
+
+        public static class Product {
+            public static final By divBarcode = By.xpath(
+                    "//div[contains(@class,'relative w-full')]/div/div/div[2]");
+            public static final By divProductName = By.xpath(
+                    "//div[contains(@class,'relative w-full')]/div/div/div[1]");
         }
     }
 }

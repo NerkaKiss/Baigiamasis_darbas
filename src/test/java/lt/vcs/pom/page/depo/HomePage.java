@@ -8,6 +8,9 @@ public class HomePage {
     public static void open() {
         Common.setUpChrome(8);
         Common.openUrl("https://online.depo-diy.lt/");
+        acceptCookies();
+        chooseKaunasStore();
+        clickButtonSignIn();
     }
 
     public static void acceptCookies() {
@@ -16,7 +19,7 @@ public class HomePage {
     }
 
     public static void chooseKaunasStore() {
-        Common.waitElementIsClickable(divButtonStoreDropList, 2);
+        Common.waitElementIsClickable(divButtonStoreDropList, 5);
         Common.clickOnElement(divButtonStoreDropList);
         Common.clickOnElement(labelButtonKaunasStoreVakarinis);
         Common.clickOnElement(buttonStoreDropListOk);
@@ -37,7 +40,20 @@ public class HomePage {
     public static boolean isAccountIsVisible() {
         Common.clickOnElement(divFullName);
         Common.waitForPageLoadAndAjaxComplete(8);
-        Common.waitElementIsVisible(divAccount, 8);
         return Common.isElementDisplayed(divAccount);
+    }
+
+    public static void enterProductBarcodeInSearchInput(String value) {
+        Common.waitForPageLoadAndAjaxComplete(8);
+        Common.sendKeysToElement(inputSearchBox, value);
+    }
+
+    public static void clickOnButtonSearch() {
+        Common.clickOnElement(divSearchButton);
+    }
+
+    public static void clickOnFirstFoundProduct() {
+        Common.waitForPageLoadAndAjaxComplete(5);
+        Common.clickOnElement(divFirstSearchProduct);
     }
 }
