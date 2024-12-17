@@ -30,6 +30,7 @@ public class HomePage {
     }
 
     public static String readNewUrl() {
+        Common.waitForPageLoadAndAjaxComplete(8);
         return Common.getCurrentUrl();
     }
 
@@ -55,5 +56,38 @@ public class HomePage {
     public static void clickOnFirstFoundProduct() {
         Common.waitForPageLoadAndAjaxComplete(5);
         Common.clickOnElement(divFirstSearchProduct);
+    }
+
+    public static void enterProductNameInSearchInput(String value) {
+        Common.waitForPageLoadAndAjaxComplete(8);
+        Common.sendKeysToElement(inputSearchBox, value);
+    }
+
+    public static void clickOnButtonProfileFullName() {
+        Common.waitForPageLoadAndAjaxComplete(8);
+        Common.clickOnElement(divFullName);
+    }
+
+    public static void clickOnButtonAccount() {
+        Common.clickOnElement(divAccount);
+    }
+
+    public static boolean isSignInIsVisible() {
+        return Common.isElementDisplayed(divSignIn);
+    }
+
+    public static boolean isSessionDataIsNull() {
+        System.out.println(Common.getItemOfSessionStorageWithJSExecutor("UserInfo"));
+        return Common.getItemOfSessionStorageWithJSExecutor("UserInfo").equals("undefined");
+    }
+
+    public static void clickButtonLogout() {
+        Common.waitForPageLoadAndAjaxComplete(8);
+        Common.clickOnElementWithActions(divFullName);
+        Common.clickOnElementWithActions(divLogout);
+    }
+
+    public static boolean isAcceptCookiesVisible() {
+        return Common.isElementDisplayed(spanAcceptCookies);
     }
 }

@@ -73,4 +73,16 @@ public class SignInTest extends TestBase {
                 "\nActual: %s\nExpected contains: %s".formatted(actualErrorMessage, expectedFullName));
         Assert.assertTrue(isSignInIsVisible, "SignIn is not visible");
     }
+
+    @Test
+    public void testLogout(){
+        SignInPage.login();
+        HomePage.clickButtonLogout();
+        boolean isSignInIsVisible = HomePage.isSignInIsVisible();
+        boolean isSessionDataIsEmpty = HomePage.isSessionDataIsNull();
+        boolean isAcceptCookiesVisible = HomePage.isAcceptCookiesVisible();
+        Assert.assertTrue(isSignInIsVisible, "SignIn is not visible");
+        Assert.assertTrue(isSessionDataIsEmpty, "Session data is not empty");
+        Assert.assertTrue(isAcceptCookiesVisible, "Accept cookies is not visible");
+    }
 }

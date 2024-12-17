@@ -140,6 +140,10 @@ public class Common {
         getWebDriverWait(seconds).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public static void waitElementIsNotVisible(By locator, int seconds) {
+        getWebDriverWait(seconds).until(ExpectedConditions.stalenessOf(getElement(locator)));
+    }
+
     public static boolean isElementDisplayed(By locator) {
         return getElement(locator).isDisplayed();
     }
@@ -256,5 +260,9 @@ public class Common {
     public static void waitTextIsLocatedInElement(By locator, String value, int seconds) {
         getWebDriverWait(seconds)
                 .until(ExpectedConditions.textToBePresentInElementLocated(locator, "Vardas Pavardė"));
+    }
+
+    public static String getItemOfSessionStorageWithJSExecutor(String value) {
+        return (String) getJsExecutor().executeScript("return window.sessionStorage.getItem('%s');".formatted(value));
     }
 }
