@@ -5,6 +5,7 @@
         <classes>
             <class name="lt.vcs.pom.test.depo.SignInTest"/>
             <class name="lt.vcs.pom.test.depo.ProductTest"/>
+            <class name="lt.vcs.pom.test.depo.ProfileTest"/>
         </classes>
     </test>
 </suite>
