@@ -38,4 +38,27 @@ public class ProductTest extends TestBase {
         Assert.assertTrue(actualBarcode.contains(expectedBarcode),
                 "\nActual: %s\nExpected contains: %s".formatted(actualBarcode, expectedBarcode));
     }
+
+    @Test
+    public void testPositive_SearchProductWithName() {
+        String productName = "gruntiniai dažai";
+        String expectedBarcode = "6430066630639";
+        String expectedUrl = "https://online.depo-diy.lt/product/456525";
+        String expectedProductName = "Stipriai sukimbantys gruntiniai dažai Eskaro 0.45L bazė A";
+
+        HomePage.enterProductNameInSearchInput(productName);
+        HomePage.clickOnButtonSearch();
+        HomePage.clickOnFirstFoundProduct();
+        String actualUrl = ProductPage.readNewUrl();
+        String actualBarcode = ProductPage.readBarcode();
+        String actualProductName = ProductPage.readProductName();
+
+        Assert.assertTrue(actualUrl.contains(expectedUrl),
+                "\nActual: %s\nExpected contains: %s".formatted(actualUrl, expectedUrl));
+        Assert.assertTrue(actualProductName.contains(expectedProductName),
+                "\nActual: %s\nExpected contains: %s".formatted(actualProductName, expectedProductName));
+        Assert.assertTrue(actualBarcode.contains(expectedBarcode),
+                "\nActual: %s\nExpected contains: %s".formatted(actualBarcode, expectedBarcode));
+    }
+
 }
