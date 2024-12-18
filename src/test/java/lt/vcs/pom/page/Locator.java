@@ -40,7 +40,6 @@ public class Locator {
                     "//div[contains(@class,'ms-Image clickable absolute')]");
             public static final By divLogout = By.xpath(
                     "//div[normalize-space()='Atsijungti']");
-
         }
 
         public static class Product {

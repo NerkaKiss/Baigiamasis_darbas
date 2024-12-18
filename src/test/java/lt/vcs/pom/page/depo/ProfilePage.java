@@ -5,7 +5,6 @@ import lt.vcs.pom.page.Common;
 import static lt.vcs.pom.page.Locator.Depo.Profile.*;
 
 public class ProfilePage {
-
     public static void clickOnButtonAddDeliveryAddress() {
         Common.waitForPageLoadAndAjaxComplete(8);
         Common.clickOnElement(divButtonAddAddress);

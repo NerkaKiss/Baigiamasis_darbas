@@ -75,7 +75,7 @@ public class SignInTest extends TestBase {
     }
 
     @Test
-    public void testLogout(){
+    public void testLogout() {
         SignInPage.login();
         HomePage.clickButtonLogout();
         boolean isSignInIsVisible = HomePage.isSignInIsVisible();

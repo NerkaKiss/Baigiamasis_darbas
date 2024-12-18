@@ -77,7 +77,6 @@ public class HomePage {
     }
 
     public static boolean isSessionDataIsNull() {
-        System.out.println(Common.getItemOfSessionStorageWithJSExecutor("UserInfo"));
         return Common.getItemOfSessionStorageWithJSExecutor("UserInfo").equals("undefined");
     }
 

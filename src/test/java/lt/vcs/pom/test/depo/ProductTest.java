@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ProductTest extends TestBase {
-
     @BeforeMethod
     @Override
     public void setUp() {
@@ -60,5 +59,4 @@ public class ProductTest extends TestBase {
         Assert.assertTrue(actualBarcode.contains(expectedBarcode),
                 "\nActual: %s\nExpected contains: %s".formatted(actualBarcode, expectedBarcode));
     }
-
 }
