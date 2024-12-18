@@ -87,6 +87,11 @@ public class HomePage {
     }
 
     public static boolean isAcceptCookiesVisible() {
+        try {
+            Common.waitElementIsVisible(spanAcceptCookies, 4);
+        } catch (Exception e) {
+            return false;
+        }
         return Common.isElementDisplayed(spanAcceptCookies);
     }
 }
