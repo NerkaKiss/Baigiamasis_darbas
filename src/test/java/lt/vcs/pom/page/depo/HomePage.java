@@ -65,6 +65,7 @@ public class HomePage {
 
     public static void clickOnButtonProfileFullName() {
         Common.waitForPageLoadAndAjaxComplete(8);
+        Common.waitElementIsVisible(divFullName, 8);
         Common.clickOnElement(divFullName);
     }
 
@@ -73,6 +74,11 @@ public class HomePage {
     }
 
     public static boolean isSignInIsVisible() {
+        try {
+            Common.waitElementIsVisible(divSignIn, 8);
+        } catch (Exception e) {
+            return false;
+        }
         return Common.isElementDisplayed(divSignIn);
     }
 
@@ -82,6 +88,7 @@ public class HomePage {
 
     public static void clickButtonLogout() {
         Common.waitForPageLoadAndAjaxComplete(8);
+        Common.waitElementIsVisible(divFullName,8);
         Common.clickOnElementWithActions(divFullName);
         Common.clickOnElementWithActions(divLogout);
     }
